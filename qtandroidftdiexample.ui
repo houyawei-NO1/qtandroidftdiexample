@@ -20,7 +20,7 @@
    <string>qtandroidftdiexample</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>120</x>
@@ -126,6 +126,13 @@
       <widget class="QPushButton" name="sendButton">
        <property name="text">
         <string>send</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="receive">
+       <property name="text">
+        <string>receive_refresh</string>
        </property>
       </widget>
      </item>

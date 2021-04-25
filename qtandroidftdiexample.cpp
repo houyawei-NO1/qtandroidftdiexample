@@ -241,7 +241,7 @@ void qtandroidftdiexample::sendDataToPort(QString line, bool hexOut, int endLine
 
     if(retVal >= 0){
         emit addLineToLog(tmpStr);
-//        ui->devicename->setText(tmpStr);
+        ui->devicename->setText(tmpStr);
     }else{
         emit addLineToLog("line error write\r\n" + QString::number(retVal));
 //        disconnectFromPort();
@@ -279,7 +279,7 @@ bool qtandroidftdiexample::readData()
         return false;
     }
     QString readStr = stringArray.toString();
-ui->devicename->setText(readStr);
+
     if(readStr.isEmpty())
         return true;
 
@@ -291,6 +291,7 @@ ui->devicename->setText(readStr);
 
     if(!readStr.isEmpty())
         emit addLineToLog(readStr);
+    ui->devicename->setText(readStr);
 
     return true;
 }
@@ -302,7 +303,8 @@ void qtandroidftdiexample::on_refreshButton_clicked()
 
 void qtandroidftdiexample::on_openButton_clicked()
 {
-    connectToOnePort();
+//    connectToOnePort();
+     connectToOnePort(0,7,0,0,0,0);
 }
 
 
@@ -312,6 +314,12 @@ void qtandroidftdiexample::on_sendButton_clicked()
     sendDataToPort(text,false,1);
 //    serialWrite->write(line.toUtf8().constData());
 //    serialWrite->write("\n");
+
+}
+
+
+void qtandroidftdiexample::on_receive_clicked()
+{
     readData();
 //    QByteArray dataSerial_temp =serialRead->readAll();
 //    QByteArray dataSerial = dataSerial_temp.toHex();

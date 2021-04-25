@@ -47,5 +47,6 @@ private slots:
     void on_openButton_clicked();
     void on_sendButton_clicked();
     void sendDataToPort(QString line, bool hexOut, int endLineIndx);
+    void on_receive_clicked();
 };
 #endif // QTANDROIDFTDIEXAMPLE_H
